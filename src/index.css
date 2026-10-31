@@ -1,0 +1,273 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-slate-100 text-slate-900 antialiased font-sans;
+    font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  }
+}
+
+.app-shell {
+  --surface: #ffffff;
+  --surface-soft: #f7f9fc;
+  --surface-muted: #f1f5f9;
+  --canvas: #f3f6fb;
+  --line: #e5eaf1;
+  --ink: #172033;
+  --muted: #64748b;
+  min-height: 100vh;
+  background:
+    radial-gradient(ellipse at 82% 0%, rgba(12, 143, 233, 0.055), transparent 34rem),
+    var(--canvas);
+  color: var(--ink);
+  transition: background-color 220ms ease, color 220ms ease;
+}
+
+.theme-light .login-shell {
+  background:
+    radial-gradient(ellipse at 50% 25%, rgba(12, 143, 233, 0.1), transparent 28rem),
+    #f4f7fb;
+}
+
+.theme-dark .login-shell {
+  background:
+    radial-gradient(ellipse at 50% 25%, rgba(12, 143, 233, 0.12), transparent 30rem),
+    #0c1220;
+}
+
+.app-navbar,
+.app-sidebar {
+  background: var(--surface);
+  border-color: var(--line);
+}
+
+.app-navbar {
+  box-shadow: 0 1px 0 rgba(15, 23, 42, 0.025);
+}
+
+.theme-toggle {
+  color: var(--muted);
+  border-color: var(--line);
+  background: var(--surface-soft);
+}
+
+.theme-toggle:hover {
+  color: var(--ink);
+  transform: translateY(-1px);
+}
+
+.welcome-panel {
+  isolation: isolate;
+  background:
+    radial-gradient(circle at 85% 12%, rgba(108, 192, 255, 0.3), transparent 16rem),
+    radial-gradient(circle at 75% 110%, rgba(16, 185, 129, 0.2), transparent 19rem),
+    linear-gradient(118deg, #10243d 0%, #123e66 52%, #0879a8 100%);
+}
+
+.welcome-panel::after {
+  position: absolute;
+  z-index: -1;
+  right: 12%;
+  bottom: -7rem;
+  width: 18rem;
+  height: 18rem;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 9999px;
+  content: "";
+  box-shadow: 0 0 0 2.5rem rgba(255, 255, 255, 0.025), 0 0 0 5rem rgba(255, 255, 255, 0.02);
+}
+
+.app-shell main > div {
+  animation: dashboard-enter 420ms cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
+
+.app-shell main .rounded-2xl,
+.app-shell main .rounded-3xl {
+  transition: border-color 180ms ease, box-shadow 180ms ease, transform 180ms ease;
+}
+
+.app-shell main button:not(:disabled) {
+  transition: transform 160ms ease, box-shadow 180ms ease, background-color 180ms ease;
+}
+
+.app-shell main button:not(:disabled):active {
+  transform: scale(0.985);
+}
+
+.nav-scroll {
+  scrollbar-width: none;
+}
+
+.nav-scroll::-webkit-scrollbar {
+  display: none;
+}
+
+.theme-dark {
+  --surface: #141c2c;
+  --surface-soft: #192337;
+  --surface-muted: #202c41;
+  --canvas: #0c1220;
+  --line: #263248;
+  --ink: #e8edf6;
+  --muted: #9aa8bd;
+  background:
+    radial-gradient(ellipse at 82% 0%, rgba(12, 143, 233, 0.11), transparent 36rem),
+    var(--canvas);
+  color: var(--ink);
+}
+
+.theme-dark .bg-white {
+  background-color: var(--surface) !important;
+}
+
+.theme-dark .bg-slate-50,
+.theme-dark .bg-slate-50\/50,
+.theme-dark .bg-slate-50\/60,
+.theme-dark .bg-slate-50\/70,
+.theme-dark .bg-slate-100,
+.theme-dark .bg-slate-100\/70 {
+  background-color: var(--surface-soft) !important;
+}
+
+.theme-dark .bg-slate-200 {
+  background-color: var(--surface-muted) !important;
+}
+
+.theme-dark .text-slate-900,
+.theme-dark .text-slate-800,
+.theme-dark .text-slate-700 {
+  color: #e8edf6 !important;
+}
+
+.theme-dark .text-slate-600,
+.theme-dark .text-slate-500 {
+  color: #a4b0c3 !important;
+}
+
+.theme-dark .text-slate-400 {
+  color: #8290a6 !important;
+}
+
+.theme-dark .border-slate-100,
+.theme-dark .border-slate-200,
+.theme-dark .border-slate-200\/80,
+.theme-dark .border-slate-200\/90,
+.theme-dark .border-slate-300 {
+  border-color: var(--line) !important;
+}
+
+.theme-dark .divide-slate-100 > :not([hidden]) ~ :not([hidden]),
+.theme-dark .divide-slate-200 > :not([hidden]) ~ :not([hidden]) {
+  border-color: var(--line) !important;
+}
+
+.theme-dark .hover\:bg-slate-50:hover,
+.theme-dark .hover\:bg-slate-100:hover,
+.theme-dark .hover\:bg-slate-50\/50:hover {
+  background-color: var(--surface-muted) !important;
+}
+
+.theme-dark .bg-bank-50,
+.theme-dark .bg-blue-50,
+.theme-dark .bg-emerald-50,
+.theme-dark .bg-purple-50,
+.theme-dark .bg-indigo-50,
+.theme-dark .bg-amber-50,
+.theme-dark .bg-rose-50 {
+  background-color: rgba(99, 155, 220, 0.12) !important;
+}
+
+.theme-dark .bg-emerald-100,
+.theme-dark .bg-blue-100,
+.theme-dark .bg-purple-100,
+.theme-dark .bg-indigo-100,
+.theme-dark .bg-amber-100,
+.theme-dark .bg-rose-100 {
+  background-color: rgba(99, 155, 220, 0.18) !important;
+}
+
+.theme-dark .theme-toggle {
+  color: #f7c873;
+}
+
+@keyframes dashboard-enter {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Custom Bank-grade Print Styling */
+@media print {
+  @page {
+    size: A4 portrait;
+    margin: 12mm 15mm 15mm 15mm;
+  }
+
+  body {
+    background: #ffffff !important;
+    color: #000000 !important;
+    font-size: 11pt !important;
+  }
+
+  /* Hide UI elements, navbars, sidebars, modals, action buttons */
+  header,
+  aside,
+  button,
+  .print\:hidden,
+  [data-print-hidden="true"] {
+    display: none !important;
+  }
+
+  /* Force display of print container */
+  .print-only {
+    display: block !important;
+  }
+
+  /* Clean print paper container */
+  .printable-document {
+    box-shadow: none !important;
+    border: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    width: 100% !important;
+  }
+
+  table {
+    border-collapse: collapse !important;
+    width: 100% !important;
+  }
+
+  th, td {
+    border: 1px solid #d1d5db !important;
+    padding: 6pt 8pt !important;
+  }
+
+  th {
+    background-color: #f3f4f6 !important;
+    font-weight: bold !important;
+  }
+
+  /* Retain background colors if supported */
+  * {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+}
